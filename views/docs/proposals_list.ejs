@@ -1,0 +1,66 @@
+<% include ../partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Project
+            <small>Proposals</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/dashboard"><i class="fa fa-dashboard active"></i> Dashboard</a></li>
+            <li><a href="#">Proposals List</a></li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">Proposals list</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Project name</th>
+                        <th>Request Owner</th>
+                        <th>Requesting Department</th>
+                        <th>Business Owner</th>
+                        <th>Submit date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% doc.forEach(function (proj) { %>
+                        <tr>
+                           <td><a href="/docs/proposal/<%= proj._id %>"><span <% if(proj.status === 'confirmed'){ %> class="text-green" <%}%>><%= proj.projectName %></span></a></td>
+                           <td><%= proj.reqOwner %></td>
+                           <td><%= proj.reqDepartment %></td>
+                           <td><%= proj.businessOwner %></td>
+                           <td><%= proj.date.toDateString() %></td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Project name</th>
+                        <th>Request Owner</th>
+                        <th>Requesting Department</th>
+                        <th>Business Owner</th>
+                        <th>Submit date</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+<% include ../partials/footer.ejs %>

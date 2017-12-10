@@ -1,0 +1,36 @@
+#preStudyFile {
+    margin-bottom: 20px;
+}
+
+#preStudyForm-btn{
+    margin-top: 5px;
+}
+
+#preStudyFormDiv {
+    display: none;
+}
+
+#preStudyForm {
+    padding: 5px 0 5px 0;
+}
+
+#uploaded-file-list {
+    list-style-type: none;
+}
+
+#addMemberForm {
+    margin-top: 10px;
+    display: none;
+}
+
+#member-del-tr td i {
+     color: #6e0000
+ }
+
+#member-del-tr td i:hover {
+    color: #bb0000
+}
+
+#member-del-tr:hover #member-del-icon {
+    display: block;
+}

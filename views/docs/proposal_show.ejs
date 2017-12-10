@@ -1,0 +1,236 @@
+<% include ../partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Project
+            <small>Proposal</small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Project Basic Information</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <th>Project Name: </th>
+                                    <td><%= doc.projectName %></td>
+                                </tr>
+                                <tr>
+                                    <th>Request Owner: </th>
+                                    <td><%= doc.reqOwner %></td>
+                                </tr>
+                                <tr>
+                                    <th>Requesting Department: </th>
+                                    <td><%= doc.reqDepartment %></td>
+                                </tr>
+                                <tr>
+                                    <th>Business Owner:  </th>
+                                    <td><%= doc.businessOwner %></td>
+                                </tr>
+                                <tr>
+                                    <th>Business Value Class:</th>
+                                    <td><%= doc.businessValueClass %></td>
+                                </tr>
+                                <tr>
+                                    <th>Investment Reason:</th>
+                                    <td><%= doc.investmentReason %></td>
+                                </tr>
+                                <tr>
+                                    <th>Is Vendor Required:</th>
+                                    <td><%= doc.vendorReq %></td>
+                                </tr>
+                                <tr>
+                                    <th>Approximate Cost:</th>
+                                    <td><%= doc.apprxCost %></td>
+                                </tr>
+                                <tr>
+                                    <th>Project Target Launch Date: </th>
+                                    <td><%= doc.approxLaunchDate %></td>
+                                </tr>
+                                <tr>
+                                    <th>Proposal Submit Date:</th>
+                                    <td> <%= doc.date.toDateString() %> </td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-striped">
+                                <% var total = doc.strategicFit + doc.revGrowth + doc.customerGrowth + doc.costSaving %>
+                                <thead>
+                                <tr>
+                                    <th>Business Score: <%= total %></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>Strategic Fit:</th>
+                                    <td><%= doc.strategicFit %></td>
+                                </tr>
+                                <tr>
+                                    <th>Revenue Growth:</th>
+                                    <td><%= doc.revGrowth %></td>
+                                </tr>
+                                <tr>
+                                    <th>Customer Growth:</th>
+                                    <td><%= doc.customerGrowth %></td>
+                                </tr>
+                                <tr>
+                                    <th>Cost Saving:</th>
+                                    <td><%= doc.costSaving %></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Project Purpose and description</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <%- doc.projectDescr %>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Project Deliverables</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <%- doc.projectDescr %>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Business Impact Description</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                   <%- doc.businessImpactDesc %>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Suggested Team</h3>
+                    <div class="box-tool pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Full Name</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% doc.proposalTeam.forEach(function (t) { %>
+                                <tr>
+                                    <td><%= t.department %></td>
+                                    <td><%= t.name %></td>
+                                    <td><%= t.role %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title">Dependencies</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <%- doc.dependencies %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title">Other important issues to be taken account</h3>
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <%- doc.other %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <button class="btn btn-success" data-toggle="modal" data-target="#modal-default">Create a project</button>
+    </section>
+    <!-- /.content -->
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Assign a Project Manager</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/project/create/<%= doc._id%>" method="POST" id="project-create-form">
+                        <div class="form-control">
+                            <label for="pm-selection"></label>
+                            <select name="pm" id="pm-selection">
+                                <option>Sandro Suladze</option>
+                                <option>Ekaterine Kvintradze</option>
+                                <option>Iza Makharadze</option>
+                                <option>Anri Jikia</option>
+                                <option>Nana Chkhaidze</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <input type="submit" form="project-create-form" class="btn btn-primary" value="Start a project" />
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</div>
+<!-- /.content-wrapper -->
+
+<% include ../partials/footer.ejs %>

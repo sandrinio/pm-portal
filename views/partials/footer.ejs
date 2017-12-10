@@ -1,0 +1,50 @@
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+</footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="../../adminlte/bower_components/jquery/dist/jquery.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../../adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+   $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="../../adminlte/dist/js/adminlte.min.js"></script>
+
+<!-- DataTables -->
+<script src="../../adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../../js/ajax_form_submit.js"></script>
+<script src="../../js/project_front.js"></script>
+
+<script>
+   $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+         'paging'      : true,
+         'lengthChange': false,
+         'searching'   : false,
+         'ordering'    : true,
+         'info'        : true,
+         'autoWidth'   : false
+      })
+   })
+
+   //Date picker
+   $('#datepicker').datepicker({
+      autoclose: true
+   })
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<% include ../partials/header.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Project
+            <small>Proposal</small>
+            <small id="bad-response"></small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form action="/docs/proposal" method="POST" id="proposal-form">
+            <input type="text" style="display: none" name="fakedata">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Project Basic Information</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" class="form-control" name="proposal[projectName]" id="projectName" placeholder="Project Name">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="reqDepartment">Requesting Department</label>
+                                    <input type="text" class="form-control" id="reqDepartment" name="proposal[reqDepartment]" placeholder="Requesting Department">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="businessOwner">Business Owner</label>
+                                    <input type="text" class="form-control" id="businessOwner" name="proposal[businessOwner]" placeholder="Business Owner">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="reqOwner">Request Owner</label>
+                                    <input type="text" class="form-control" id="reqOwner" name="proposal[reqOwner]" placeholder="Request Owner">
+                                </div>
+                            </div>
+                            <!--end of row-->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Business Value Class</label>
+                                            <select class="form-control" name="proposal[businessValueClass]">
+                                                <option>Choose one</option>
+                                                <option>Run</option>
+                                                <option>Grow</option>
+                                                <option>Transform</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Investment Reason</label>
+                                        <select class="form-control" name="proposal[investmentReason]">
+                                            <option>Choose one</option>
+                                            <option>Capacity</option>
+                                            <option>Customer Process</option>
+                                            <option>Product Development</option>
+                                            <option>Product Efficiency</option>
+                                            <option>Reinvestment</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Is Vendor Required</label>
+                                        <select class="form-control" name="proposal[vendorReq]">
+                                            <option>Choose one</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            <option>N/A</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group col-md-8">
+                                        <label for="aprxCost">Approx. Cost</label>
+                                        <input type="text" class="form-control" name="proposal[apprxCost]" id="aprxCost" placeholder="Approximate Cost">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end of row-->
+                            <div class="form-group">
+                                <label for="datepicker">Project Target Launch Date</label>
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" name="proposal[approxLaunchDate]" id="datepicker">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Project Purpose and description</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <textarea id="editor1" cols="30" name="proposal[projectDescr]" rows="10"></textarea>
+                        <script>
+                           CKEDITOR.replace('editor1');
+                        </script>
+                    </div>
+                </div>
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Project Deliverables</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <textarea id="editor3" cols="30" name="proposal[deliverables]" rows="10"></textarea>
+                        <script>
+                           CKEDITOR.replace('editor3');
+                        </script>
+                    </div>
+                </div>
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Business Impact</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>N/A</th>
+                                <th>Low</th>
+                                <th>Medium</th>
+                                <th>High</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Strategic Fit</th>
+                                <td><input type="radio" name="proposal[strategicFit]" value="0"></td>
+                                <td><input type="radio" name="proposal[strategicFit]" value="1"></td>
+                                <td><input type="radio" name="proposal[strategicFit]" value="2"></td>
+                                <td><input type="radio" name="proposal[strategicFit]" value="3"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Revenue Growth</th>
+                                <td><input type="radio" name="proposal[revGrowth]" value="0"></td>
+                                <td><input type="radio" name="proposal[revGrowth]" value="1"> < 50,000 Gel</td>
+                                <td><input type="radio" name="proposal[revGrowth]" value="2"> < 50,000 - 100,000 Gel</td>
+                                <td><input type="radio" name="proposal[revGrowth]" value="3"> > 100,000 Gel</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Customer Growth</th>
+                                <td><input type="radio" name="proposal[customerGrowth]" value="0"></td>
+                                <td><input type="radio" name="proposal[customerGrowth]" value="1"> < 1,000</td>
+                                <td><input type="radio" name="proposal[customerGrowth]" value="2">  1,000 - 10,000</td>
+                                <td><input type="radio" name="proposal[customerGrowth]" value="3"> > 10,000</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cost Saving</th>
+                                <td><input type="radio" name="proposal[costSaving]" value="0"></td>
+                                <td><input type="radio" name="proposal[costSaving]" value="1"> < 50,000 Gel</td>
+                                <td><input type="radio" name="proposal[costSaving]" value="2"> < 50,000 - 100,000 Gel</td>
+                                <td><input type="radio" name="proposal[costSaving]" value="3"> > 100,000 Gel</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Business Impact Description</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <textarea name="proposal[businessImpactDesc]" id="editor2" cols="30" rows="10"></textarea>
+                        <script>
+                           CKEDITOR.replace('editor2');
+                        </script>
+                    </div>
+                </div>
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Project Team</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Full Name</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody id="member-list">
+                            <tr>
+                                <td><input class="form-control" type="text" name="proposalTeam[department]" placeholder="Department"></td>
+                                <td><input class="form-control" type="text" name="proposalTeam[name]" placeholder="Enter full name"></td>
+                                <td><input class="form-control" type="text" name="proposalTeam[role]" placeholder="Role"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="btn btn-success btn-sm pull-right" id="addMember">Add Teammate</div>
+
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-success">
+                            <div class="box-header">
+                                <h3 class="box-title">Dependencies</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="proposal[dependencies]" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box box-success">
+                            <div class="box-header">
+                                <h3 class="box-title">Other important issues to be taken account</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="proposal[other]" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+        <button class="btn btn-success" data-toggle="modal" data-target="#modal-default">Confirm Proposal</button>
+        <!--Modal-->
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Are you sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Proposal will be sent to PPMO Manager and you will receive an email whenever it's reviewed</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <input type="submit" form="proposal-form" id="proposal-submit-btn" class="btn btn-primary" value="Submit Proposal" />
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->
+
+<% include ../partials/footer.ejs %>
