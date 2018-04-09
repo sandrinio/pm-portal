@@ -20,7 +20,7 @@ router.get('/docs/project-proposals', (req, res) => {
       if(err){
          console.log(err)
       }else{
-         res.render('docs/proposals_list', { doc: doc })
+          res.send(doc)
       }
    });
 });
